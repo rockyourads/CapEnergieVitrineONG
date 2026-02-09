@@ -1,5 +1,13 @@
 # CLAUDE.md - Site Vitrine Cap Énergie ONG
 
+## Instructions pour Claude
+
+- **L'utilisateur est non technique** : expliquer simplement, éviter le jargon, ne pas demander de choix techniques complexes. Prendre les décisions techniques de manière autonome.
+- **Commiter très souvent** : faire un commit après chaque changement significatif (nouvelle feature, fix, modif de contenu). Ne pas accumuler les changements.
+- **Toujours pusher** : un hook post-commit pousse automatiquement sur `origin main` après chaque commit.
+- **Repo GitHub** : `git@github.com:rockyourads/CapEnergieVitrineONG.git`
+- **Stack** : Vue 3 + TypeScript + TailwindCSS v4 + Vue Router + Pinia. Build statique via `npm run build`.
+
 ## Contexte du projet
 
 Site vitrine présentant les réalisations photovoltaïques de **Cap Énergie** pour des ONG et organisations humanitaires.
@@ -71,11 +79,9 @@ Créer un site vitrine (pas e-commerce, pas catalogue produit) qui :
 
 ## Stack technique
 
-À définir. Options possibles :
-- **HTML/CSS/JS statique** (simple, rapide)
-- **Astro** (site statique moderne, bon pour les galeries photos)
-- **Next.js** (si besoin d'un formulaire backend)
-- **Hugo / 11ty** (générateurs statiques)
+- **Vue 3** + **TypeScript** + **TailwindCSS v4** + **Vue Router** + **Pinia**
+- Build statique avec Vite (`npm run build` → dossier `dist/`)
+- Déployable sur Netlify, Vercel, ou tout hébergement statique
 
 ## Formulaire de devis
 
