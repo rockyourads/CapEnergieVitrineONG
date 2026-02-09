@@ -7,6 +7,7 @@
 - **Toujours pusher** : un hook post-commit pousse automatiquement sur `origin main` après chaque commit.
 - **Repo GitHub** : `git@github.com:rockyourads/CapEnergieVitrineONG.git`
 - **Stack** : Vue 3 + TypeScript + TailwindCSS v4 + Vue Router + Pinia. Build statique via `npm run build`.
+- **Serveur de dev** : toujours lancer `npm run dev` en début de session et indiquer à l'utilisateur qu'il peut voir le site en ouvrant **http://localhost:5173/** dans son navigateur. Rappeler ce lien après chaque modification pour qu'il puisse vérifier le résultat.
 
 ## Contexte du projet
 
