@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { RouterLink } from 'vue-router'
+import { ref, computed, watch } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const { t } = useI18n()
+const route = useRoute()
 const mobileMenuOpen = ref(false)
 
 const navLinks = computed(() => [
@@ -13,6 +14,11 @@ const navLinks = computed(() => [
   { to: '/a-propos', label: t('nav.about') },
   { to: '/devis', label: t('nav.quote') },
 ])
+
+// Close menu on route change
+watch(() => route.path, () => {
+  mobileMenuOpen.value = false
+})
 </script>
 
 <template>
@@ -62,24 +68,47 @@ const navLinks = computed(() => [
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- Mobile menu -->
-      <nav v-if="mobileMenuOpen" class="md:hidden pb-4 space-y-1">
+    <!-- Mobile menu dropdown -->
+    <div v-if="mobileMenuOpen" class="mobile-menu md:hidden">
+      <nav class="px-4 pb-6 pt-2 space-y-1">
         <RouterLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
           :class="[
-            'block px-4 py-2 rounded-md text-sm font-medium transition-colors',
+            'block px-4 py-3 rounded-lg text-lg font-medium transition-colors',
             link.to === '/devis'
-              ? 'bg-primary text-white hover:bg-primary-dark'
-              : 'text-gray-300 hover:text-white hover:bg-white/10'
+              ? 'bg-primary text-white hover:bg-primary-dark mt-3'
+              : 'text-gray-200 hover:text-white hover:bg-white/10'
           ]"
           @click="mobileMenuOpen = false"
         >
           {{ link.label }}
         </RouterLink>
       </nav>
+      <div class="border-t border-white/10 px-8 py-4 text-center text-sm text-gray-400">
+        <a href="tel:+33467567791" class="hover:text-white">+33 (0)4 67 56 77 91</a>
+        <span class="mx-2">·</span>
+        <span>Montpellier, France</span>
+      </div>
     </div>
   </header>
+
+  <!-- Backdrop overlay when mobile menu is open -->
+  <Teleport to="body">
+    <div
+      v-if="mobileMenuOpen"
+      class="md:hidden fixed inset-0 bg-black/50 z-40"
+      @click="mobileMenuOpen = false"
+    />
+  </Teleport>
 </template>
+
+<style scoped>
+.mobile-menu {
+  background-color: #0d1821;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+</style>
