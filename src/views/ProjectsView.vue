@@ -66,7 +66,7 @@ function clearFilters() {
 
         <!-- Results count -->
         <p class="text-sm text-gray mb-6">
-          {{ filteredProjects.length }} {{ filteredProjects.length > 1 ? t('projectsPage.projectCount', { count: filteredProjects.length }).split('|')[1] : t('projectsPage.projectCount', { count: filteredProjects.length }).split('|')[0] }}
+          {{ filteredProjects.length }} {{ filteredProjects.length > 1 ? t('projectsPage.projectsFound') : t('projectsPage.projectFound') }}
         </p>
 
         <!-- Grid -->
