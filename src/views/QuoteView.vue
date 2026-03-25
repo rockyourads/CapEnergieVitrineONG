@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const form = reactive({
   organization: '',
@@ -16,7 +19,6 @@ const submitting = ref(false)
 
 async function handleSubmit() {
   submitting.value = true
-  // Simuler l'envoi (à remplacer par EmailJS, Formspree, etc.)
   await new Promise(resolve => setTimeout(resolve, 1000))
   submitted.value = true
   submitting.value = false
@@ -28,10 +30,9 @@ async function handleSubmit() {
     <!-- Hero -->
     <section class="bg-dark text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-bold mb-4">Demander un devis</h1>
+        <h1 class="text-4xl font-bold mb-4">{{ t('quotePage.title') }}</h1>
         <p class="text-lg text-gray-300 max-w-2xl">
-          Décrivez votre projet d'électrification solaire et notre équipe vous recontactera
-          dans les plus brefs délais.
+          {{ t('quotePage.subtitle') }}
         </p>
       </div>
     </section>
@@ -46,9 +47,9 @@ async function handleSubmit() {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 class="text-2xl font-bold text-green-800 mb-2">Demande envoyée !</h2>
+          <h2 class="text-2xl font-bold text-green-800 mb-2">{{ t('quotePage.successTitle') }}</h2>
           <p class="text-green-600">
-            Merci pour votre demande. Notre équipe vous recontactera dans les plus brefs délais.
+            {{ t('quotePage.successMessage') }}
           </p>
         </div>
 
@@ -57,7 +58,7 @@ async function handleSubmit() {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="organization" class="block text-sm font-medium text-dark mb-2">
-                Nom de l'organisation / ONG *
+                {{ t('quotePage.organization') }} *
               </label>
               <input
                 id="organization"
@@ -65,12 +66,12 @@ async function handleSubmit() {
                 type="text"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Ex: Croix Rouge, MSF..."
+                :placeholder="t('quotePage.organizationPlaceholder')"
               />
             </div>
             <div>
               <label for="contactName" class="block text-sm font-medium text-dark mb-2">
-                Nom du contact *
+                {{ t('quotePage.contactName') }} *
               </label>
               <input
                 id="contactName"
@@ -78,7 +79,7 @@ async function handleSubmit() {
                 type="text"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Prénom Nom"
+                :placeholder="t('quotePage.contactNamePlaceholder')"
               />
             </div>
           </div>
@@ -86,7 +87,7 @@ async function handleSubmit() {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="email" class="block text-sm font-medium text-dark mb-2">
-                Email *
+                {{ t('quotePage.email') }} *
               </label>
               <input
                 id="email"
@@ -94,26 +95,26 @@ async function handleSubmit() {
                 type="email"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="contact@organisation.org"
+                :placeholder="t('quotePage.emailPlaceholder')"
               />
             </div>
             <div>
               <label for="phone" class="block text-sm font-medium text-dark mb-2">
-                Téléphone
+                {{ t('quotePage.phone') }}
               </label>
               <input
                 id="phone"
                 v-model="form.phone"
                 type="tel"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="+33 ..."
+                :placeholder="t('quotePage.phonePlaceholder')"
               />
             </div>
           </div>
 
           <div>
             <label for="country" class="block text-sm font-medium text-dark mb-2">
-              Pays du projet *
+              {{ t('quotePage.country') }} *
             </label>
             <input
               id="country"
@@ -121,13 +122,13 @@ async function handleSubmit() {
               type="text"
               required
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              placeholder="Ex: Burkina Faso, Philippines..."
+              :placeholder="t('quotePage.countryPlaceholder')"
             />
           </div>
 
           <div>
             <label for="description" class="block text-sm font-medium text-dark mb-2">
-              Description du besoin *
+              {{ t('quotePage.description') }} *
             </label>
             <textarea
               id="description"
@@ -135,20 +136,20 @@ async function handleSubmit() {
               required
               rows="3"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-y"
-              placeholder="Type d'installation, puissance estimée, nombre de sites..."
+              :placeholder="t('quotePage.descriptionPlaceholder')"
             ></textarea>
           </div>
 
           <div>
             <label for="message" class="block text-sm font-medium text-dark mb-2">
-              Message libre
+              {{ t('quotePage.message') }}
             </label>
             <textarea
               id="message"
               v-model="form.message"
               rows="3"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-y"
-              placeholder="Informations complémentaires..."
+              :placeholder="t('quotePage.messagePlaceholder')"
             ></textarea>
           </div>
 
@@ -157,13 +158,12 @@ async function handleSubmit() {
             :disabled="submitting"
             class="w-full py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span v-if="submitting">Envoi en cours...</span>
-            <span v-else>Envoyer la demande de devis</span>
+            <span v-if="submitting">{{ t('quotePage.submitting') }}</span>
+            <span v-else>{{ t('quotePage.submit') }}</span>
           </button>
 
           <p class="text-xs text-gray text-center">
-            En soumettant ce formulaire, vous acceptez d'être recontacté par Cap Énergie
-            concernant votre demande.
+            {{ t('quotePage.disclaimer') }}
           </p>
         </form>
       </div>
@@ -173,12 +173,12 @@ async function handleSubmit() {
     <section class="py-12 bg-light">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p class="text-gray">
-          Vous pouvez aussi nous contacter directement au
+          {{ t('quotePage.contactDirect') }}
           <a href="tel:+33467567791" class="text-primary font-medium hover:text-primary-dark">
             +33 (0)4 67 56 77 91
           </a>
         </p>
-        <p class="text-sm text-gray mt-2">Siège : Montpellier, France</p>
+        <p class="text-sm text-gray mt-2">{{ t('quotePage.hq') }}</p>
       </div>
     </section>
   </div>

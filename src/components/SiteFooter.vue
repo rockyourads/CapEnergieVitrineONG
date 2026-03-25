@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,25 +16,24 @@ import { RouterLink } from 'vue-router'
             <span class="text-lg font-bold text-white tracking-tight">Cap Énergie</span>
           </div>
           <p class="text-sm leading-relaxed">
-            Distributeur photovoltaïque et concepteur de solutions off-grid depuis 2007.
-            Plus de 25 ans d'expérience à l'export, spécialisation Afrique et Asie.
+            {{ t('footer.description') }}
           </p>
         </div>
 
         <!-- Navigation -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Navigation</h3>
+          <h3 class="text-white font-semibold mb-4">{{ t('footer.navigation') }}</h3>
           <ul class="space-y-2 text-sm">
-            <li><RouterLink to="/" class="hover:text-primary transition-colors">Accueil</RouterLink></li>
-            <li><RouterLink to="/projets" class="hover:text-primary transition-colors">Projets</RouterLink></li>
-            <li><RouterLink to="/a-propos" class="hover:text-primary transition-colors">À propos</RouterLink></li>
-            <li><RouterLink to="/devis" class="hover:text-primary transition-colors">Demander un devis</RouterLink></li>
+            <li><RouterLink to="/" class="hover:text-primary transition-colors">{{ t('nav.home') }}</RouterLink></li>
+            <li><RouterLink to="/projets" class="hover:text-primary transition-colors">{{ t('nav.projects') }}</RouterLink></li>
+            <li><RouterLink to="/a-propos" class="hover:text-primary transition-colors">{{ t('nav.about') }}</RouterLink></li>
+            <li><RouterLink to="/devis" class="hover:text-primary transition-colors">{{ t('nav.quote') }}</RouterLink></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div>
-          <h3 class="text-white font-semibold mb-4">Contact</h3>
+          <h3 class="text-white font-semibold mb-4">{{ t('footer.contact') }}</h3>
           <ul class="space-y-2 text-sm">
             <li>Montpellier, France</li>
             <li>
@@ -54,7 +56,7 @@ import { RouterLink } from 'vue-router'
       </div>
 
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
-        <p>&copy; {{ new Date().getFullYear() }} Cap Énergie (CAPENERGIE). Tous droits réservés.</p>
+        <p>&copy; {{ new Date().getFullYear() }} Cap Énergie (CAPENERGIE). {{ t('footer.rights') }}</p>
       </div>
     </div>
   </footer>

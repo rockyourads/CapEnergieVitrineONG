@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 
+const { t } = useI18n()
 const mobileMenuOpen = ref(false)
 
-const navLinks = [
-  { to: '/', label: 'Accueil' },
-  { to: '/projets', label: 'Projets' },
-  { to: '/a-propos', label: 'À propos' },
-  { to: '/devis', label: 'Demander un devis' },
-]
+const navLinks = computed(() => [
+  { to: '/', label: t('nav.home') },
+  { to: '/projets', label: t('nav.projects') },
+  { to: '/a-propos', label: t('nav.about') },
+  { to: '/devis', label: t('nav.quote') },
+])
 </script>
 
 <template>
@@ -37,21 +40,27 @@ const navLinks = [
           >
             {{ link.label }}
           </RouterLink>
+          <div class="ml-3 pl-3 border-l border-white/20">
+            <LanguageSwitcher />
+          </div>
         </nav>
 
         <!-- Mobile menu button -->
-        <button
-          class="md:hidden p-2 text-gray-300 hover:text-white"
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          aria-label="Menu"
-        >
-          <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            class="p-2 text-gray-300 hover:text-white"
+            @click="mobileMenuOpen = !mobileMenuOpen"
+            aria-label="Menu"
+          >
+            <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- Mobile menu -->

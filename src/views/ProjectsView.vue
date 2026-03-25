@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { projects, countries } from '@/data/projects'
+
+const { t } = useI18n()
 
 const selectedCountry = ref('')
 const selectedType = ref('')
@@ -26,10 +29,9 @@ function clearFilters() {
     <!-- Hero -->
     <section class="bg-dark text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-bold mb-4">Nos projets</h1>
+        <h1 class="text-4xl font-bold mb-4">{{ t('projectsPage.title') }}</h1>
         <p class="text-lg text-gray-300 max-w-2xl">
-          Découvrez nos installations photovoltaïques réalisées pour des ONG
-          et organisations dans le monde entier.
+          {{ t('projectsPage.subtitle') }}
         </p>
       </div>
     </section>
@@ -43,14 +45,14 @@ function clearFilters() {
             v-model="selectedCountry"
             class="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           >
-            <option value="">Tous les pays</option>
+            <option value="">{{ t('projectsPage.allCountries') }}</option>
             <option v-for="c in countries" :key="c" :value="c">{{ c }}</option>
           </select>
           <select
             v-model="selectedType"
             class="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           >
-            <option value="">Tous les types</option>
+            <option value="">{{ t('projectsPage.allTypes') }}</option>
             <option v-for="t in clientTypes" :key="t" :value="t">{{ t }}</option>
           </select>
           <button
@@ -58,13 +60,13 @@ function clearFilters() {
             @click="clearFilters"
             class="px-4 py-2 text-sm text-primary hover:text-primary-dark font-medium transition-colors"
           >
-            Effacer les filtres
+            {{ t('projectsPage.clearFilters') }}
           </button>
         </div>
 
         <!-- Results count -->
         <p class="text-sm text-gray mb-6">
-          {{ filteredProjects.length }} projet{{ filteredProjects.length > 1 ? 's' : '' }} trouvé{{ filteredProjects.length > 1 ? 's' : '' }}
+          {{ filteredProjects.length }} {{ filteredProjects.length > 1 ? t('projectsPage.projectCount', { count: filteredProjects.length }).split('|')[1] : t('projectsPage.projectCount', { count: filteredProjects.length }).split('|')[0] }}
         </p>
 
         <!-- Grid -->
@@ -97,9 +99,9 @@ function clearFilters() {
 
         <!-- Empty state -->
         <div v-if="filteredProjects.length === 0" class="text-center py-16">
-          <p class="text-gray text-lg">Aucun projet ne correspond à vos filtres.</p>
+          <p class="text-gray text-lg">{{ t('projectsPage.noResults') }}</p>
           <button @click="clearFilters" class="mt-4 text-primary hover:text-primary-dark font-medium">
-            Réinitialiser les filtres
+            {{ t('projectsPage.resetFilters') }}
           </button>
         </div>
       </div>
