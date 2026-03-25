@@ -1,94 +1,100 @@
 export interface MapPoint {
   country: string
   countryEn: string
-  lat: number
-  lon: number
   organizations: string[]
+  // SVG coordinates (from getBBox center of each country path in world-map.svg)
+  svgX: number
+  svgY: number
 }
+
+// viewBox of world-map.svg: "30.767 241.591 784.077 458.627"
+// => x: 30.767 to 814.844, y: 241.591 to 700.218
+export const SVG_VIEWBOX = { minX: 30.767, minY: 241.591, width: 784.077, height: 458.627 }
 
 export const mapPoints: MapPoint[] = [
   {
     country: 'Philippines',
     countryEn: 'Philippines',
-    lat: 14.5,
-    lon: 121,
+    svgX: 704.2,
+    svgY: 494.1,
     organizations: ['Croix Rouge'],
   },
   {
     country: 'Laos',
     countryEn: 'Laos',
-    lat: 18,
-    lon: 103,
+    svgX: 656.4,
+    svgY: 478.6,
     organizations: ['ONG locale'],
   },
   {
     country: 'Dominique',
     countryEn: 'Dominica',
-    lat: 15.4,
-    lon: -61.4,
+    svgX: 256.5,
+    svgY: 486.8,
     organizations: ['Chrétien-Orient'],
   },
   {
     country: 'Burkina Faso',
     countryEn: 'Burkina Faso',
-    lat: 12.4,
-    lon: -1.5,
+    svgX: 403.5,
+    svgY: 499.7,
     organizations: ['Société Générale'],
   },
   {
     country: 'Tchad',
     countryEn: 'Chad',
-    lat: 12.1,
-    lon: 15.1,
+    svgX: 451.4,
+    svgY: 492.3,
     organizations: ['Infrastructure aéroportuaire'],
   },
   {
     country: 'Kenya',
     countryEn: 'Kenya',
-    lat: -1.3,
-    lon: 36.8,
+    svgX: 499.6,
+    svgY: 530,
     organizations: ['Chrétien-Orient'],
   },
   {
     country: 'Madagascar',
     countryEn: 'Madagascar',
-    lat: -18.9,
-    lon: 47.5,
+    svgX: 520.8,
+    svgY: 579.2,
     organizations: ['Chrétien-Orient'],
   },
   {
     country: 'Djibouti',
     countryEn: 'Djibouti',
-    lat: 11.6,
-    lon: 43,
+    svgX: 510.2,
+    svgY: 500.1,
     organizations: ['Chrétien-Orient'],
   },
   {
     country: 'Sierra Leone',
     countryEn: 'Sierra Leone',
-    lat: 8.5,
-    lon: -13.2,
+    svgX: 377,
+    svgY: 510.7,
     organizations: ['LASER'],
   },
   {
     country: 'Sénégal',
     countryEn: 'Senegal',
-    lat: 14.7,
-    lon: -17.5,
+    svgX: 372.5,
+    svgY: 495.4,
     organizations: ['Électriciens Sans Frontières'],
   },
   {
     country: 'Niger',
     countryEn: 'Niger',
-    lat: 13.5,
-    lon: 2.1,
+    svgX: 427,
+    svgY: 485.9,
     organizations: ['MSF'],
   },
   {
     country: 'Guyane',
     countryEn: 'French Guiana',
-    lat: 4.9,
-    lon: -52.3,
+    // French Guiana is just east of Guyana (263.3, 520.1)
+    svgX: 268,
+    svgY: 518,
     organizations: ['Électriciens Sans Frontières'],
   },
 ]

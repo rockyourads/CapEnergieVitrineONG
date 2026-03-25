@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { mapPoints } from '@/data/mapData'
+import { mapPoints, SVG_VIEWBOX } from '@/data/mapData'
 
 const { locale } = useI18n()
 
@@ -9,24 +9,25 @@ const containerRef = ref<HTMLElement | null>(null)
 const hoveredIndex = ref<number | null>(null)
 const tooltipStyle = ref({ left: '0px', top: '0px' })
 
-// The SVG viewBox: minX=30.767, minY=241.591, width=784.077, height=458.627
-// Equirectangular projection mapping
-function lonToPercent(lon: number): number {
-  return ((lon + 180) / 360) * 100
-}
-
-function latToPercent(lat: number): number {
-  return ((90 - lat) / 180) * 100
+// Convert SVG coordinates to percentage position on the container
+function svgToPercent(svgX: number, svgY: number) {
+  return {
+    left: ((svgX - SVG_VIEWBOX.minX) / SVG_VIEWBOX.width) * 100,
+    top: ((svgY - SVG_VIEWBOX.minY) / SVG_VIEWBOX.height) * 100,
+  }
 }
 
 const points = computed(() =>
-  mapPoints.map((p, i) => ({
-    ...p,
-    index: i,
-    left: lonToPercent(p.lon),
-    top: latToPercent(p.lat),
-    displayName: locale.value === 'en' ? p.countryEn : p.country,
-  }))
+  mapPoints.map((p, i) => {
+    const pos = svgToPercent(p.svgX, p.svgY)
+    return {
+      ...p,
+      index: i,
+      left: pos.left,
+      top: pos.top,
+      displayName: locale.value === 'en' ? p.countryEn : p.country,
+    }
+  })
 )
 
 function onDotEnter(event: MouseEvent, index: number) {
