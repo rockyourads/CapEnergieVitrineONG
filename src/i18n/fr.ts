@@ -6,18 +6,44 @@ export default {
     quote: 'Demander un devis',
   },
   hero: {
-    title1: "L'énergie solaire au service de",
+    badge: 'Spécialiste off-grid depuis 2007',
+    title1: "L'énergie solaire au service de ",
     title2: "l'humanitaire",
     subtitle:
       'Depuis 2007, Cap Énergie conçoit et installe des solutions photovoltaïques pour les ONG et organisations humanitaires en Afrique, Asie et dans les Caraïbes.',
+    ctaPrimary: 'Discuter de votre projet',
     cta: 'Demander un devis',
     projects: 'Voir nos réalisations',
+    counterSites: 'Sites électrifiés',
+    counterMW: 'Installés',
+    counterCountries: 'Pays couverts',
+  },
+  partners: {
+    title: 'Ils nous font confiance',
   },
   stats: {
     experience: "Années d'expérience",
     founded: 'Création de Cap Énergie',
     countries: "Pays d'intervention",
     renewable: 'Énergie renouvelable',
+  },
+  decisions: {
+    title: 'Des solutions adaptées à chaque mission',
+    subtitle:
+      'Les ONG ont des contraintes spécifiques. Nous concevons des systèmes solaires adaptés à chaque contexte opérationnel.',
+    seeProjects: 'Voir les projets',
+    hospitals: {
+      title: 'Hôpitaux & dispensaires',
+      desc: 'Fiabilité critique, autonomie énergétique totale, monitoring et maintenance à distance pour les centres de santé isolés.',
+    },
+    villages: {
+      title: 'Villages & communautés',
+      desc: "Microgrids, pompage solaire, éclairage public — des solutions complètes pour l'électrification rurale durable.",
+    },
+    logistics: {
+      title: 'Bases logistiques & camps',
+      desc: 'Déploiement rapide, systèmes modulaires, conçus pour les conditions extrêmes des zones de crise.',
+    },
   },
   values: {
     title: 'Nos valeurs',
@@ -31,6 +57,69 @@ export default {
     purposeDesc:
       'Chaque installation apporte une réponse concrète aux besoins énergétiques des populations vulnérables.',
   },
+  diff: {
+    title: 'Ce qui nous différencie',
+    subtitle: "Des données, pas des adjectifs. Voici pourquoi les ONG nous choisissent et reviennent.",
+    statYears: "Ans dans l'off-grid humanitaire",
+    statCA: "Chiffre d'affaires",
+    statProjects: 'Sites électrifiés',
+    pioneer: {
+      title: 'Pionniers depuis 2007',
+      desc: "Première entreprise française dédiée à l'off-grid humanitaire. Plus de 18 ans d'expertise terrain en Afrique, Asie et Caraïbes.",
+    },
+    fullchain: {
+      title: 'Chaîne complète',
+      desc: "De l'étude de faisabilité à la maintenance — conception, fourniture, installation et commissioning. Un seul interlocuteur.",
+    },
+    award: {
+      title: 'Reconnus par les institutions',
+      desc: "Membre du Club ADEME International. Contribution au Prix ONU pour l'Action Climatique 2019 via le projet Dominique avec ESF.",
+    },
+  },
+  testimonials: {
+    title: 'La parole à nos partenaires',
+    subtitle: "Ce ne sont pas nos mots, mais les leurs. Les retours de ceux qui travaillent avec nous sur le terrain.",
+    esf: {
+      quote: "Cap Énergie est un partenaire fiable avec une vraie compréhension des contraintes terrain. Leur réactivité et leur expertise technique font la différence sur nos projets d'électrification.",
+      author: 'Responsable Projets',
+    },
+    croixrouge: {
+      quote: "La qualité des installations et le suivi post-projet sont remarquables. Cap Énergie comprend les enjeux spécifiques du monde humanitaire.",
+      author: 'Coordinateur Logistique',
+    },
+    msf: {
+      quote: "Dans des contextes où la fiabilité énergétique est vitale, Cap Énergie a toujours su livrer des solutions robustes dans les délais.",
+      author: 'Responsable Technique',
+    },
+  },
+  trust: {
+    title: 'Confiance & conformité',
+    subtitle: "Les ONG doivent justifier leurs choix auprès des bailleurs. Nos certifications et références sont auditables.",
+    ademeDesc: 'Membre actif',
+    qualipvDesc: 'Installateur certifié',
+    isoDesc: 'Management qualité',
+    ceDesc: 'Conformité européenne',
+    downloadPDF: 'Télécharger le dossier de référencement',
+  },
+  blog: {
+    title: 'Ressources & expertise',
+    subtitle: "Retours d'expérience, guides techniques et analyses pour l'écosystème solaire humanitaire.",
+    sizing: {
+      tag: 'Guide',
+      title: 'Dimensionnement off-grid en zone tropicale',
+      excerpt: "Les paramètres clés pour concevoir un système autonome fiable en climat chaud et humide. Irradiation, température, pertes...",
+    },
+    maintenance: {
+      tag: 'Technique',
+      title: 'Maintenance préventive à distance',
+      excerpt: "Comment surveiller et maintenir des installations solaires dans des zones difficiles d'accès grâce au monitoring connecté.",
+    },
+    batteries: {
+      tag: 'Comparatif',
+      title: 'Batteries pour contexte humanitaire',
+      excerpt: "Lithium vs plomb, critères de choix pour les sites isolés : durée de vie, transport, recyclage, coût total de possession.",
+    },
+  },
   featured: {
     title: 'Nos réalisations',
     subtitle:
@@ -38,15 +127,31 @@ export default {
     viewAll: 'Voir tous les projets',
   },
   map: {
-    title: 'Nos interventions dans le monde',
+    title: 'Notre terrain, pas notre bureau',
     subtitle:
       'Cap Énergie intervient dans plus de 15 pays, en partenariat avec des ONG et organisations humanitaires internationales.',
   },
   cta: {
     title: "Un projet d'électrification solaire ?",
     subtitle:
-      "Contactez-nous pour étudier ensemble votre projet photovoltaïque ONG. Notre équipe vous accompagne de la conception à l'installation.",
-    button: 'Demander un devis gratuit',
+      "Contactez-nous pour étudier ensemble votre projet. Notre équipe vous accompagne de la conception à l'installation.",
+    button: 'Discuter de votre projet',
+  },
+  footerForm: {
+    title: 'Vous avez un projet ?',
+    promise: 'Réponse sous 48h',
+    name: 'Votre nom',
+    org: 'Organisation',
+    projectType: 'Type de projet',
+    country: 'Pays',
+    send: 'Envoyer',
+    types: {
+      hospital: 'Électrification médicale',
+      village: 'Électrification rurale',
+      pump: 'Pompage solaire',
+      logistics: 'Base logistique',
+      other: 'Autre',
+    },
   },
   projectsPage: {
     title: 'Nos projets',
@@ -121,6 +226,13 @@ export default {
     description:
       "Distributeur photovoltaïque et concepteur de solutions off-grid depuis 2007. Plus de 25 ans d'expérience à l'export, spécialisation Afrique et Asie.",
     navigation: 'Navigation',
+    services: 'Services',
+    servicesList: {
+      offgrid: 'Solutions off-grid',
+      pumping: 'Pompage solaire',
+      medical: 'Électrification médicale',
+      study: 'Études & conseil',
+    },
     contact: 'Contact',
     rights: 'Tous droits réservés.',
   },

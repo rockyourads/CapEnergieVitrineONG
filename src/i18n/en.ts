@@ -6,18 +6,44 @@ export default {
     quote: 'Request a Quote',
   },
   hero: {
-    title1: 'Solar energy serving',
+    badge: 'Off-grid specialist since 2007',
+    title1: 'Solar energy serving ',
     title2: 'humanitarian action',
     subtitle:
       'Since 2007, Cap Énergie designs and installs photovoltaic solutions for NGOs and humanitarian organizations in Africa, Asia and the Caribbean.',
+    ctaPrimary: 'Discuss your project',
     cta: 'Request a Quote',
     projects: 'View our projects',
+    counterSites: 'Electrified sites',
+    counterMW: 'Installed',
+    counterCountries: 'Countries covered',
+  },
+  partners: {
+    title: 'Trusted by leading organizations',
   },
   stats: {
     experience: 'Years of experience',
     founded: 'Cap Énergie founded',
     countries: 'Countries of operation',
     renewable: 'Renewable energy',
+  },
+  decisions: {
+    title: 'Solutions tailored to every mission',
+    subtitle:
+      'NGOs face unique constraints. We design solar systems adapted to each operational context.',
+    seeProjects: 'See projects',
+    hospitals: {
+      title: 'Hospitals & clinics',
+      desc: 'Critical reliability, full energy autonomy, remote monitoring and maintenance for isolated health centers.',
+    },
+    villages: {
+      title: 'Villages & communities',
+      desc: 'Microgrids, solar pumping, public lighting — complete solutions for sustainable rural electrification.',
+    },
+    logistics: {
+      title: 'Logistics bases & camps',
+      desc: 'Rapid deployment, modular systems, designed for extreme conditions in crisis zones.',
+    },
   },
   values: {
     title: 'Our values',
@@ -31,6 +57,69 @@ export default {
     purposeDesc:
       'Every installation provides a concrete answer to the energy needs of vulnerable populations.',
   },
+  diff: {
+    title: 'What sets us apart',
+    subtitle: "Data, not adjectives. Here's why NGOs choose us and come back.",
+    statYears: 'Years in humanitarian off-grid',
+    statCA: 'Revenue',
+    statProjects: 'Electrified sites',
+    pioneer: {
+      title: 'Pioneers since 2007',
+      desc: 'First French company dedicated to humanitarian off-grid. Over 18 years of field expertise in Africa, Asia and the Caribbean.',
+    },
+    fullchain: {
+      title: 'Full chain coverage',
+      desc: 'From feasibility study to maintenance — design, supply, installation and commissioning. One single point of contact.',
+    },
+    award: {
+      title: 'Recognized by institutions',
+      desc: 'Member of ADEME International Club. Contribution to the 2019 UN Climate Action Award through the Dominica project with ESF.',
+    },
+  },
+  testimonials: {
+    title: 'Our partners speak',
+    subtitle: "Not our words, but theirs. Feedback from those who work with us in the field.",
+    esf: {
+      quote: "Cap Énergie is a reliable partner with a real understanding of field constraints. Their responsiveness and technical expertise make a difference on our electrification projects.",
+      author: 'Project Manager',
+    },
+    croixrouge: {
+      quote: "The quality of installations and post-project follow-up are remarkable. Cap Énergie understands the specific challenges of the humanitarian world.",
+      author: 'Logistics Coordinator',
+    },
+    msf: {
+      quote: "In contexts where energy reliability is vital, Cap Énergie has always delivered robust solutions on time.",
+      author: 'Technical Manager',
+    },
+  },
+  trust: {
+    title: 'Trust & compliance',
+    subtitle: "NGOs must justify their choices to donors. Our certifications and references are auditable.",
+    ademeDesc: 'Active member',
+    qualipvDesc: 'Certified installer',
+    isoDesc: 'Quality management',
+    ceDesc: 'European compliance',
+    downloadPDF: 'Download reference document',
+  },
+  blog: {
+    title: 'Resources & expertise',
+    subtitle: "Field reports, technical guides and analyses for the humanitarian solar ecosystem.",
+    sizing: {
+      tag: 'Guide',
+      title: 'Off-grid sizing in tropical zones',
+      excerpt: "Key parameters for designing a reliable autonomous system in hot and humid climates. Irradiation, temperature, losses...",
+    },
+    maintenance: {
+      tag: 'Technical',
+      title: 'Remote preventive maintenance',
+      excerpt: "How to monitor and maintain solar installations in hard-to-reach areas through connected monitoring.",
+    },
+    batteries: {
+      tag: 'Comparison',
+      title: 'Batteries for humanitarian contexts',
+      excerpt: "Lithium vs lead-acid, selection criteria for isolated sites: lifespan, transport, recycling, total cost of ownership.",
+    },
+  },
   featured: {
     title: 'Our achievements',
     subtitle:
@@ -38,15 +127,31 @@ export default {
     viewAll: 'View all projects',
   },
   map: {
-    title: 'Our worldwide operations',
+    title: 'Our field, not our office',
     subtitle:
       'Cap Énergie operates in over 15 countries, partnering with international NGOs and humanitarian organizations.',
   },
   cta: {
     title: 'Have a solar electrification project?',
     subtitle:
-      'Contact us to discuss your NGO photovoltaic project. Our team supports you from design to installation.',
-    button: 'Request a free quote',
+      'Contact us to discuss your project. Our team supports you from design to installation.',
+    button: 'Discuss your project',
+  },
+  footerForm: {
+    title: 'Have a project?',
+    promise: 'Response within 48h',
+    name: 'Your name',
+    org: 'Organization',
+    projectType: 'Project type',
+    country: 'Country',
+    send: 'Send',
+    types: {
+      hospital: 'Medical electrification',
+      village: 'Rural electrification',
+      pump: 'Solar pumping',
+      logistics: 'Logistics base',
+      other: 'Other',
+    },
   },
   projectsPage: {
     title: 'Our projects',
@@ -121,6 +226,13 @@ export default {
     description:
       'Photovoltaic distributor and off-grid solution designer since 2007. Over 25 years of export experience, specializing in Africa and Asia.',
     navigation: 'Navigation',
+    services: 'Services',
+    servicesList: {
+      offgrid: 'Off-grid solutions',
+      pumping: 'Solar pumping',
+      medical: 'Medical electrification',
+      study: 'Studies & consulting',
+    },
     contact: 'Contact',
     rights: 'All rights reserved.',
   },
