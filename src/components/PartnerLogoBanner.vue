@@ -13,34 +13,25 @@ const partners = [
 </script>
 
 <template>
-  <section class="py-6 bg-white border-y border-gray-100 overflow-hidden">
+  <section class="py-8 bg-white border-y border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs text-center text-gray uppercase tracking-widest mb-4">
+      <p class="text-xs text-center text-gray uppercase tracking-widest mb-6">
         {{ t('partners.title') }}
       </p>
-    </div>
-    <div class="relative">
-      <!-- Fade edges -->
-      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
-
-      <!-- Marquee -->
-      <div class="flex animate-marquee whitespace-nowrap">
-        <div v-for="n in 2" :key="n" class="flex items-center gap-16 px-8">
-          <div
-            v-for="partner in partners"
-            :key="partner.name + n"
-            class="flex flex-col items-center gap-2 min-w-[120px]"
-          >
-            <img
-              :src="partner.logo"
-              :alt="partner.name"
-              class="h-8 w-auto object-contain"
-            />
-            <span class="text-[10px] font-medium text-gray/40 tracking-wide uppercase whitespace-nowrap">
-              {{ partner.name }}
-            </span>
-          </div>
+      <div class="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
+        <div
+          v-for="partner in partners"
+          :key="partner.name"
+          class="flex flex-col items-center gap-3"
+        >
+          <img
+            :src="partner.logo"
+            :alt="partner.name"
+            class="h-12 md:h-14 w-auto object-contain"
+          />
+          <span class="text-xs font-medium text-gray/50 tracking-wide uppercase">
+            {{ partner.name }}
+          </span>
         </div>
       </div>
     </div>
