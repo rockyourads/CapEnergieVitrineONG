@@ -60,7 +60,7 @@ export default {
   },
   diff: {
     title: 'What sets us apart',
-    subtitle: "Data, not adjectives. Here's why NGOs choose us and come back.",
+    subtitle: '',
     statYears: 'Years in humanitarian off-grid',
     statCA: 'Revenue',
     statProjects: 'Electrified sites',

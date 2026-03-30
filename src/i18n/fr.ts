@@ -60,7 +60,7 @@ export default {
   },
   diff: {
     title: 'Ce qui nous différencie',
-    subtitle: "Des données, pas des adjectifs. Voici pourquoi les ONG nous choisissent et reviennent.",
+    subtitle: '',
     statYears: "Ans dans l'off-grid humanitaire",
     statCA: "Chiffre d'affaires",
     statProjects: 'Sites électrifiés',
