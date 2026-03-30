@@ -35,7 +35,7 @@ const partners = [
             <img
               :src="partner.logo"
               :alt="partner.name"
-              class="h-8 w-auto object-contain opacity-60 grayscale"
+              class="h-8 w-auto object-contain"
             />
             <span class="text-[10px] font-medium text-gray/40 tracking-wide uppercase whitespace-nowrap">
               {{ partner.name }}
