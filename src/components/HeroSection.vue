@@ -5,13 +5,14 @@ import { useCountUp } from '@/composables/useCountUp'
 
 const { t } = useI18n()
 
+const { counterRef: yearsRef, displayValue: yearsValue } = useCountUp(19, 1800, '', '')
 const { counterRef: sitesRef, displayValue: sitesValue } = useCountUp(150, 2000, '', '+')
 const { counterRef: mwRef, displayValue: mwValue } = useCountUp(25, 2200, '', '')
 const { counterRef: countriesRef, displayValue: countriesValue } = useCountUp(15, 1800, '', '+')
 </script>
 
 <template>
-  <section class="relative min-h-screen flex items-center overflow-hidden">
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0">
       <img
@@ -26,7 +27,7 @@ const { counterRef: countriesRef, displayValue: countriesValue } = useCountUp(15
     </div>
 
     <!-- Content -->
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 w-full">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 w-full">
       <div class="max-w-3xl">
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm text-white/80 mb-8 border border-white/10">
@@ -56,7 +57,11 @@ const { counterRef: countriesRef, displayValue: countriesValue } = useCountUp(15
       </div>
 
       <!-- Animated counters -->
-      <div class="mt-16 md:mt-24 grid grid-cols-3 gap-8 max-w-xl">
+      <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl">
+        <div ref="yearsRef" class="text-center md:text-left">
+          <div class="text-3xl md:text-4xl font-extrabold text-white">{{ yearsValue }} <span class="text-xl text-accent">ans</span></div>
+          <div class="text-sm text-gray-400 mt-1">{{ t('hero.counterYears') }}</div>
+        </div>
         <div ref="sitesRef" class="text-center md:text-left">
           <div class="text-3xl md:text-4xl font-extrabold text-white">{{ sitesValue }}</div>
           <div class="text-sm text-gray-400 mt-1">{{ t('hero.counterSites') }}</div>

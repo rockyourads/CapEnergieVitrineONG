@@ -4,19 +4,18 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const partners = [
-  'Croix-Rouge',
-  'Électriciens Sans Frontières',
-  'MSF',
-  'LASER',
-  'Chrétien-Orient',
-  'ADEME',
+  { name: 'Croix-Rouge', logo: '/images/partners/croix-rouge.svg' },
+  { name: 'Électriciens Sans Frontières', logo: '/images/partners/esf.jpg' },
+  { name: 'MSF', logo: '/images/partners/msf.svg' },
+  { name: 'Chrétien-Orient', logo: '/images/partners/oeuvre-orient.svg' },
+  { name: 'ADEME', logo: '/images/partners/ademe.svg' },
 ]
 </script>
 
 <template>
-  <section class="py-8 bg-white border-y border-gray-100 overflow-hidden">
+  <section class="py-6 bg-white border-y border-gray-100 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs text-center text-gray uppercase tracking-widest mb-6">
+      <p class="text-xs text-center text-gray uppercase tracking-widest mb-4">
         {{ t('partners.title') }}
       </p>
     </div>
@@ -27,14 +26,21 @@ const partners = [
 
       <!-- Marquee -->
       <div class="flex animate-marquee whitespace-nowrap">
-        <div v-for="n in 2" :key="n" class="flex items-center gap-12 px-6">
-          <span
+        <div v-for="n in 2" :key="n" class="flex items-center gap-16 px-8">
+          <div
             v-for="partner in partners"
-            :key="partner + n"
-            class="text-lg md:text-xl font-semibold text-gray/40 tracking-wide uppercase"
+            :key="partner.name + n"
+            class="flex flex-col items-center gap-2 min-w-[120px]"
           >
-            {{ partner }}
-          </span>
+            <img
+              :src="partner.logo"
+              :alt="partner.name"
+              class="h-8 w-auto object-contain opacity-60 grayscale"
+            />
+            <span class="text-[10px] font-medium text-gray/40 tracking-wide uppercase whitespace-nowrap">
+              {{ partner.name }}
+            </span>
+          </div>
         </div>
       </div>
     </div>

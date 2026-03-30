@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useCountUp } from '@/composables/useCountUp'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 
 const { t } = useI18n()
 const { elementRef, isVisible } = useScrollReveal()
-
-const { counterRef: yearsRef, displayValue: yearsValue } = useCountUp(18, 2000, '', '')
-const { counterRef: caRef, displayValue: caValue } = useCountUp(6, 1800, '', '')
-const { counterRef: projectsRef, displayValue: projectsValue } = useCountUp(150, 2200, '', '+')
 
 const differentiators = [
   {
@@ -32,22 +27,6 @@ const differentiators = [
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ t('diff.title') }}</h2>
         <p class="text-gray-400 max-w-2xl mx-auto text-lg">{{ t('diff.subtitle') }}</p>
-      </div>
-
-      <!-- Animated stats -->
-      <div class="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-20">
-        <div ref="yearsRef" class="text-center">
-          <div class="text-4xl md:text-5xl font-extrabold text-accent">{{ yearsValue }}</div>
-          <div class="text-sm text-gray-400 mt-2">{{ t('diff.statYears') }}</div>
-        </div>
-        <div ref="caRef" class="text-center">
-          <div class="text-4xl md:text-5xl font-extrabold text-accent">{{ caValue }}<span class="text-2xl">M€</span></div>
-          <div class="text-sm text-gray-400 mt-2">{{ t('diff.statCA') }}</div>
-        </div>
-        <div ref="projectsRef" class="text-center">
-          <div class="text-4xl md:text-5xl font-extrabold text-accent">{{ projectsValue }}</div>
-          <div class="text-sm text-gray-400 mt-2">{{ t('diff.statProjects') }}</div>
-        </div>
       </div>
 
       <!-- Differentiator cards -->

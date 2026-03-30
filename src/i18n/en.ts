@@ -14,6 +14,7 @@ export default {
     ctaPrimary: 'Discuss your project',
     cta: 'Request a Quote',
     projects: 'View our projects',
+    counterYears: 'Of experience',
     counterSites: 'Electrified sites',
     counterMW: 'Installed',
     counterCountries: 'Countries covered',
