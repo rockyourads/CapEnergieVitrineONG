@@ -128,7 +128,7 @@ export default {
     viewAll: 'Voir tous les projets',
   },
   map: {
-    title: 'Notre terrain, pas notre bureau',
+    title: 'Nos actions à travers le monde',
     subtitle:
       'Cap Énergie intervient dans plus de 15 pays, en partenariat avec des ONG et organisations humanitaires internationales.',
   },

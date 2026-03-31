@@ -128,7 +128,7 @@ export default {
     viewAll: 'View all projects',
   },
   map: {
-    title: 'Our field, not our office',
+    title: 'Our actions around the world',
     subtitle:
       'Cap Énergie operates in over 15 countries, partnering with international NGOs and humanitarian organizations.',
   },
