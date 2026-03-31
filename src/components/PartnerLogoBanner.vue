@@ -2,13 +2,14 @@
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 const partners = [
-  { name: 'Croix-Rouge', logo: '/images/partners/croix-rouge.svg' },
-  { name: 'Électriciens Sans Frontières', logo: '/images/partners/esf.jpg' },
-  { name: 'MSF', logo: '/images/partners/msf.svg' },
-  { name: 'Chrétien-Orient', logo: '/images/partners/oeuvre-orient.svg' },
-  { name: 'ADEME', logo: '/images/partners/ademe.svg' },
+  { name: 'Croix-Rouge', logo: `${base}/images/partners/croix-rouge.svg` },
+  { name: 'Électriciens Sans Frontières', logo: `${base}/images/partners/esf.jpg` },
+  { name: 'MSF', logo: `${base}/images/partners/msf.svg` },
+  { name: 'Chrétien-Orient', logo: `${base}/images/partners/oeuvre-orient.svg` },
+  { name: 'ADEME', logo: `${base}/images/partners/ademe.svg` },
 ]
 </script>
 

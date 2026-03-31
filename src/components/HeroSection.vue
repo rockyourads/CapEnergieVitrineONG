@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useCountUp } from '@/composables/useCountUp'
 
 const { t } = useI18n()
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 const { counterRef: yearsRef, displayValue: yearsValue } = useCountUp(19, 1800, '', '')
 const { counterRef: sitesRef, displayValue: sitesValue } = useCountUp(150, 2000, '', '+')
@@ -16,7 +17,7 @@ const { counterRef: countriesRef, displayValue: countriesValue } = useCountUp(15
     <!-- Background image -->
     <div class="absolute inset-0">
       <img
-        src="/images/esf/local-croix-rouge-philipines/dscn2091.jpg"
+        :src="`${base}/images/esf/local-croix-rouge-philipines/dscn2091.jpg`"
         alt=""
         class="w-full h-full object-cover"
       />

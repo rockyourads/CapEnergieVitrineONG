@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { mapPoints, SVG_VIEWBOX } from '@/data/mapData'
 
 const { locale } = useI18n()
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 const containerRef = ref<HTMLElement | null>(null)
 const hoveredIndex = ref<number | null>(null)
@@ -66,7 +67,7 @@ const hoveredData = computed(() => {
   <div ref="containerRef" class="relative w-full rounded-xl overflow-hidden shadow-md bg-[#eaf1f7]">
     <!-- Real world map SVG -->
     <img
-      src="/images/world-map.svg"
+      :src="`${base}/images/world-map.svg`"
       alt="World Map"
       class="w-full h-auto block"
       draggable="false"
