@@ -18,10 +18,4 @@ export const founders: Founder[] = [
     description: 'Sébastien développe les marchés internationaux et accompagne les partenaires ONG dans leurs projets d\'électrification.',
     image: '/images/founders/sebastien-weibel.jpg',
   },
-  {
-    name: 'Jean-Marc Darboux',
-    role: 'Lead Stratégie',
-    description: 'Jean-Marc définit la vision stratégique de Cap Énergie et oriente l\'entreprise vers les projets à fort impact humanitaire.',
-    image: '/images/founders/jean-marc-darboux.jpg',
-  },
 ]
