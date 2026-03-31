@@ -1,0 +1,17 @@
+[
+  {
+    "key": "sizing",
+    "tag": "guide",
+    "color": "bg-primary"
+  },
+  {
+    "key": "maintenance",
+    "tag": "technique",
+    "color": "bg-accent"
+  },
+  {
+    "key": "batteries",
+    "tag": "comparatif",
+    "color": "bg-green-600"
+  }
+]

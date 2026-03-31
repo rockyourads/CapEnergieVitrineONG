@@ -1,0 +1,32 @@
+[
+  {
+    "value": 19,
+    "duration": 1800,
+    "prefix": "",
+    "suffix": " ",
+    "labelKey": "hero.counterYears",
+    "unitKey": "ans"
+  },
+  {
+    "value": 150,
+    "duration": 2000,
+    "prefix": "",
+    "suffix": "+",
+    "labelKey": "hero.counterSites"
+  },
+  {
+    "value": 25,
+    "duration": 2200,
+    "prefix": "",
+    "suffix": " ",
+    "labelKey": "hero.counterMW",
+    "unitKey": "MW"
+  },
+  {
+    "value": 15,
+    "duration": 1800,
+    "prefix": "",
+    "suffix": "+",
+    "labelKey": "hero.counterCountries"
+  }
+]

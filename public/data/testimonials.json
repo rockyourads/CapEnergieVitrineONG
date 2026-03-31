@@ -1,0 +1,17 @@
+[
+  {
+    "key": "esf",
+    "initials": "ESF",
+    "org": "Électriciens Sans Frontières"
+  },
+  {
+    "key": "croixrouge",
+    "initials": "CR",
+    "org": "Croix-Rouge"
+  },
+  {
+    "key": "msf",
+    "initials": "MSF",
+    "org": "Médecins Sans Frontières"
+  }
+]
