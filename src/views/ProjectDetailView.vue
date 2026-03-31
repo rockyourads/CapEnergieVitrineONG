@@ -23,9 +23,10 @@ const relatedProjects = computed(() => {
 onMounted(async () => {
   if (!project?.galleryFolder) return
   try {
-    const res = await fetch('/images/esf/manifest.json')
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+    const res = await fetch(`${import.meta.env.BASE_URL}images/esf/manifest.json`)
     const manifest: Record<string, string[]> = await res.json()
-    gallery.value = manifest[project.galleryFolder] || []
+    gallery.value = (manifest[project.galleryFolder] || []).map(p => `${base}${p}`)
   } catch {
     gallery.value = []
   }

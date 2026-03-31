@@ -11,15 +11,17 @@ const manifest = ref<Record<string, string[]>>({})
 
 onMounted(async () => {
   try {
-    const res = await fetch('/images/esf/manifest.json')
+    const res = await fetch(`${import.meta.env.BASE_URL}images/esf/manifest.json`)
     manifest.value = await res.json()
   } catch { /* ignore */ }
 })
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 function getCoverImage(project: typeof projects[0]): string | null {
   if (project.galleryFolder) {
     const files = manifest.value[project.galleryFolder]
-    if (files && files.length) return files[0] ?? null
+    if (files && files.length) return `${base}${files[0]}`
   }
   return null
 }
