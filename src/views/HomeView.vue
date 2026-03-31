@@ -29,15 +29,17 @@ onMounted(async () => {
 })
 
 function getCoverImage(project: typeof projects[0]): string | null {
-  if (project.galleryFolder && manifest.value[project.galleryFolder]?.length) {
-    return manifest.value[project.galleryFolder][0]
+  if (project.galleryFolder) {
+    const files = manifest.value[project.galleryFolder]
+    if (files && files.length) return files[0] ?? null
   }
   return null
 }
 
 function getPhotoCount(project: typeof projects[0]): number {
-  if (project.galleryFolder && manifest.value[project.galleryFolder]) {
-    return manifest.value[project.galleryFolder].length
+  if (project.galleryFolder) {
+    const files = manifest.value[project.galleryFolder]
+    if (files) return files.length
   }
   return 0
 }

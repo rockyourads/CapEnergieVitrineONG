@@ -31,8 +31,9 @@ export function useCountUp(target: number, duration = 2000, prefix = '', suffix 
     if (!counterRef.value) return
 
     observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        const entry = entries[0]
+        if (entry?.isIntersecting) {
           isVisible.value = true
           observer?.disconnect()
         }

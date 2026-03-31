@@ -1,9 +1,36 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { projects, countries } from '@/data/projects'
 
 const { t } = useI18n()
+const router = useRouter()
+
+const manifest = ref<Record<string, string[]>>({})
+
+onMounted(async () => {
+  try {
+    const res = await fetch('/images/esf/manifest.json')
+    manifest.value = await res.json()
+  } catch { /* ignore */ }
+})
+
+function getCoverImage(project: typeof projects[0]): string | null {
+  if (project.galleryFolder) {
+    const files = manifest.value[project.galleryFolder]
+    if (files && files.length) return files[0] ?? null
+  }
+  return null
+}
+
+function getPhotoCount(project: typeof projects[0]): number {
+  if (project.galleryFolder) {
+    const files = manifest.value[project.galleryFolder]
+    if (files) return files.length
+  }
+  return 0
+}
 
 const selectedCountry = ref('')
 const selectedType = ref('')
@@ -74,12 +101,27 @@ function clearFilters() {
           <div
             v-for="project in filteredProjects"
             :key="project.id"
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer"
+            @click="router.push({ name: 'project-detail', params: { id: project.id } })"
           >
-            <div class="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-              <svg class="w-16 h-16 text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Cover image or placeholder -->
+            <div class="h-48 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden">
+              <img
+                v-if="getCoverImage(project)"
+                :src="getCoverImage(project)!"
+                :alt="project.title"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <svg v-else class="w-16 h-16 text-primary/30 absolute inset-0 m-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
+              <span
+                v-if="getPhotoCount(project)"
+                class="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full"
+              >
+                {{ getPhotoCount(project) }} photos
+              </span>
             </div>
             <div class="p-6">
               <div class="flex items-center gap-2 mb-3">
@@ -92,7 +134,7 @@ function clearFilters() {
               </div>
               <h3 class="font-semibold text-lg mb-1">{{ project.title }}</h3>
               <p class="text-sm text-gray mb-3">{{ project.category }}</p>
-              <p class="text-sm text-gray-600 leading-relaxed">{{ project.description }}</p>
+              <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">{{ project.description }}</p>
             </div>
           </div>
         </div>

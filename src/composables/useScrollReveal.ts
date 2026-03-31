@@ -9,8 +9,9 @@ export function useScrollReveal(threshold = 0.15) {
     if (!elementRef.value) return
 
     observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        const entry = entries[0]
+        if (entry?.isIntersecting) {
           isVisible.value = true
           observer?.disconnect()
         }
