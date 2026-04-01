@@ -8,7 +8,6 @@ const { elementRef, isVisible } = useScrollReveal()
 const badges = [
   { key: 'ademe', label: 'Club ADEME International' },
   { key: 'qualipv', label: 'QualiPV' },
-  { key: 'iso', label: 'ISO 9001' },
   { key: 'ce', label: 'Normes CE' },
 ]
 </script>
@@ -23,7 +22,7 @@ const badges = [
 
       <div
         ref="elementRef"
-        class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+        class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto"
       >
         <div
           v-for="(badge, index) in badges"
