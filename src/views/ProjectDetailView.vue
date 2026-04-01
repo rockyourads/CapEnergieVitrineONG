@@ -74,7 +74,7 @@ onUnmounted(() => {
     <!-- Hero with cover photo -->
     <section class="relative bg-dark text-white overflow-hidden">
       <div v-if="gallery.length" class="absolute inset-0">
-        <img :src="gallery[0]" :alt="project.title" class="w-full h-full object-cover" />
+        <img :src="gallery[0]" :alt="t(`projectData.${project.id}.title`)" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-dark/40"></div>
       </div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
@@ -87,19 +87,19 @@ onUnmounted(() => {
           </svg>
           {{ t('projectsPage.title') }}
         </button>
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">{{ project.title }}</h1>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">{{ t(`projectData.${project.id}.title`) }}</h1>
         <div class="flex flex-wrap items-center gap-3 mb-6">
           <span class="text-sm bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10">
-            {{ project.country }}
+            {{ t(`projectData.${project.id}.country`) }}
           </span>
           <span class="text-sm bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10">
-            {{ project.category }}
+            {{ t(`projectData.${project.id}.category`) }}
           </span>
           <span class="text-sm bg-primary/20 text-primary-light px-4 py-1.5 rounded-full border border-primary/20">
             {{ project.client }}
           </span>
         </div>
-        <p class="text-lg text-gray-300 max-w-3xl leading-relaxed">{{ project.description }}</p>
+        <p class="text-lg text-gray-300 max-w-3xl leading-relaxed">{{ t(`projectData.${project.id}.description`) }}</p>
 
         <!-- Stats -->
         <div v-if="gallery.length" class="mt-8 flex items-center gap-6">
@@ -114,7 +114,7 @@ onUnmounted(() => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            {{ project.country }}
+            {{ t(`projectData.${project.id}.country`) }}
           </div>
         </div>
       </div>
@@ -123,8 +123,8 @@ onUnmounted(() => {
     <!-- Gallery Grid -->
     <section v-if="gallery.length" class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold mb-2">Galerie photos</h2>
-        <p class="text-gray mb-8">Cliquez sur une photo pour l'agrandir</p>
+        <h2 class="text-2xl font-bold mb-2">{{ t('projectDetail.gallery') }}</h2>
+        <p class="text-gray mb-8">{{ t('projectDetail.clickToEnlarge') }}</p>
 
         <!-- Featured photo (first one large) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -134,7 +134,7 @@ onUnmounted(() => {
           >
             <img
               :src="gallery[0]"
-              :alt="`${project.title} - Photo 1`"
+              :alt="`${t(`projectData.${project.id}.title`)} - Photo 1`"
               class="w-full h-full object-cover"
             />
           </button>
@@ -147,7 +147,7 @@ onUnmounted(() => {
             >
               <img
                 :src="gallery[i]"
-                :alt="`${project.title} - Photo ${i + 1}`"
+                :alt="`${t(`projectData.${project.id}.title`)} - Photo ${i + 1}`"
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -172,7 +172,7 @@ onUnmounted(() => {
           >
             <img
               :src="img"
-              :alt="`${project.title} - Photo ${i + 6}`"
+              :alt="`${t(`projectData.${project.id}.title`)} - Photo ${i + 6}`"
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -189,14 +189,14 @@ onUnmounted(() => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
-        <p class="text-gray">Photos bientôt disponibles pour ce projet.</p>
+        <p class="text-gray">{{ t('projectDetail.noPhotos') }}</p>
       </div>
     </section>
 
     <!-- Related projects -->
     <section v-if="relatedProjects.length" class="py-16 bg-light">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold mb-8">Projets similaires</h2>
+        <h2 class="text-2xl font-bold mb-8">{{ t('projectDetail.related') }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <RouterLink
             v-for="rp in relatedProjects"
@@ -211,9 +211,9 @@ onUnmounted(() => {
             </div>
             <div class="p-5">
               <span class="text-xs font-medium bg-primary/10 text-primary px-2.5 py-1 rounded-full">
-                {{ rp.country }}
+                {{ t(`projectData.${rp.id}.country`) }}
               </span>
-              <h3 class="font-bold mt-2 group-hover:text-primary transition-colors">{{ rp.title }}</h3>
+              <h3 class="font-bold mt-2 group-hover:text-primary transition-colors">{{ t(`projectData.${rp.id}.title`) }}</h3>
               <p class="text-sm text-gray mt-1">{{ rp.client }}</p>
             </div>
           </RouterLink>
@@ -268,7 +268,7 @@ onUnmounted(() => {
 
         <img
           :src="gallery[lightboxIndex]"
-          :alt="`${project.title} - Photo ${lightboxIndex + 1}`"
+          :alt="`${t(`projectData.${project.id}.title`)} - Photo ${lightboxIndex + 1}`"
           class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg"
         />
 
@@ -286,7 +286,7 @@ onUnmounted(() => {
 
   <!-- 404 -->
   <div v-else class="py-32 text-center">
-    <h1 class="text-2xl font-bold mb-4">Projet non trouvé</h1>
+    <h1 class="text-2xl font-bold mb-4">{{ t('projectDetail.notFound') }}</h1>
     <RouterLink
       to="/projets"
       class="text-primary hover:text-primary-dark font-medium"

@@ -111,7 +111,7 @@ function clearFilters() {
               <img
                 v-if="getCoverImage(project)"
                 :src="getCoverImage(project)!"
-                :alt="project.title"
+                :alt="t(`projectData.${project.id}.title`)"
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -128,15 +128,15 @@ function clearFilters() {
             <div class="p-6">
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">
-                  {{ project.country }}
+                  {{ t(`projectData.${project.id}.country`) }}
                 </span>
                 <span class="text-xs font-medium bg-gray-100 text-gray px-2 py-1 rounded-full">
-                  {{ project.clientType }}
+                  {{ t(`projectData.${project.id}.clientType`) }}
                 </span>
               </div>
-              <h3 class="font-semibold text-lg mb-1">{{ project.title }}</h3>
-              <p class="text-sm text-gray mb-3">{{ project.category }}</p>
-              <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">{{ project.description }}</p>
+              <h3 class="font-semibold text-lg mb-1">{{ t(`projectData.${project.id}.title`) }}</h3>
+              <p class="text-sm text-gray mb-3">{{ t(`projectData.${project.id}.category`) }}</p>
+              <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">{{ t(`projectData.${project.id}.description`) }}</p>
             </div>
           </div>
         </div>

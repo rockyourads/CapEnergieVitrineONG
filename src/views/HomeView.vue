@@ -105,7 +105,7 @@ function getPhotoCount(project: typeof projects[0]): number {
               <img
                 v-if="getCoverImage(project)"
                 :src="getCoverImage(project)!"
-                :alt="project.title"
+                :alt="t(`projectData.${project.id}.title`)"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
@@ -123,12 +123,12 @@ function getPhotoCount(project: typeof projects[0]): number {
             <div class="p-6">
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-full">
-                  {{ project.country }}
+                  {{ t(`projectData.${project.id}.country`) }}
                 </span>
-                <span class="text-xs text-gray">{{ project.category }}</span>
+                <span class="text-xs text-gray">{{ t(`projectData.${project.id}.category`) }}</span>
               </div>
-              <h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{{ project.title }}</h3>
-              <p class="text-sm text-gray leading-relaxed line-clamp-2">{{ project.description }}</p>
+              <h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{{ t(`projectData.${project.id}.title`) }}</h3>
+              <p class="text-sm text-gray leading-relaxed line-clamp-2">{{ t(`projectData.${project.id}.description`) }}</p>
             </div>
           </div>
         </div>
